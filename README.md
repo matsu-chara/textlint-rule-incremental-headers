@@ -2,7 +2,7 @@
 
 this is a linter plugin for japanese text.
 
-この[textlint](https://github.com/textlint/textlint)-ruleプラグインは次の２つのルールを検査します。
+この[textlint](https://github.com/textlint/textlint)-ruleは次の２つの規則を検査します。
 
 - ページの始まりの見出しは#(h1)から始まる。
 - 見出しの深さ(h1, h2, h3など)は必ず１つずつ増加する。(h1, h3のように急に深くならない)
@@ -48,7 +48,7 @@ h2から始まっているので
 
 ## Installation
 
-プラグインのインストールは以下のように行います。
+ruleのインストールは以下のように行います。
 
 まずnpmのライブラリとしてインストールを行います。
 
@@ -56,12 +56,12 @@ h2から始まっているので
 npm install -D textlint textlint-rule-incremental-headers
 ```
 
-その後、.textlintrcで以下のようにpluginsを記述します。
+その後、.textlintrcで以下のようにrulesを記述します。
 
 ```js
 {
-    "plugins": [
-        "incremental-headers"
-    ]
+    "rules": {
+        "incremental-headers": true
+    }
 }
 ```
