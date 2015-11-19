@@ -1,5 +1,7 @@
 # textlint-rule-incremental-headers
 
+this is a linter plugin for japanese text.
+
 この[textlint](https://github.com/textlint/textlint)-ruleプラグインは次の２つのルールを検査します。
 
 - ページの始まりの見出しは#(h1)から始まる。
