@@ -1,0 +1,38 @@
+{
+  "name": "textlint-rule-incremental-headers",
+  "version": "0.1.0",
+  "description": "見出しの深さが１つずつ増えているかどうかを確認するtextlintプラグイン",
+  "main": "lib/incremental-headers.js",
+  "directories": {
+    "test": "test"
+  },
+  "files": [
+    "lib",
+    "src"
+  ],
+  "scripts": {
+    "build": "babel src --out-dir lib --source-maps",
+    "prepublish": "npm run --if-present build",
+    "test": "mocha"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "babel": "^6.1.18",
+    "babel-cli": "^6.2.0",
+    "babel-preset-es2015": "^6.1.18",
+    "espower-babel": "^4.0.0",
+    "mocha": "^2.3.4",
+    "textlint-tester": "^0.4.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matsu-chara/textlint-rule-incremental-headers.git"
+  },
+  "keywords": [
+    "textlint",
+    "japanese"
+  ],
+  "author": "matsu_chara",
+  "license": "MIT",
+  "homepage": "https://github.com/matsu-chara/textlint-rule-incremental-headers#readme"
+}
