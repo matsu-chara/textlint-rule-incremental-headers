@@ -33,6 +33,8 @@ export default function (context, options = {}) {
                 reportResult(node, "ページの先頭のヘッダーが#から始まっていません。"); 
               } else if (node.depth > currentDepth + 1) {
                 reportResult(node, `${repeat("#", currentDepth)}の後に${repeat("#", node.depth)}が来ています。段落は１つずつ下げてください。`);
+              } else if (currentDepth > 0 && node.depth == 1) {
+                reportResult(node, "ページの先頭以外で#が見つかりました。");
               }
               currentDepth = node.depth;
             }

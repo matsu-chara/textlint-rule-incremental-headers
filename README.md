@@ -2,9 +2,10 @@
 
 this is a linter plugin for japanese text.
 
-この[textlint](https://github.com/textlint/textlint)-ruleは次の２つの規則を検査します。
+この[textlint](https://github.com/textlint/textlint)-ruleは次の3つの規則を検査します。
 
 - ページの始まりの見出しは#(h1)から始まる。
+- ページの始まり以外の見出しで#(h1)が使われていない。(##, ###,...を利用する。)
 - 見出しの深さ(h1, h2, h3など)は必ず１つずつ増加する。(h1, h3のように急に深くならない)
 
 ## Example
@@ -32,6 +33,15 @@ h2から始まっているので
 ## 問題です
 
 ```
+
+```
+# この文章は
+
+h1を文中で使っているので
+
+# 問題です
+```
+
 
 ```
 # この文章は
