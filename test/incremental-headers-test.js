@@ -1,11 +1,10 @@
 // LICENSE : MIT
-"use strict";
 import TextLintTester from "textlint-tester";
 import rule from "../src/incremental-headers";
 
-var tester = new TextLintTester();
+let tester = new TextLintTester();
 tester.run("見出しの深さが１つずつ増えている", rule, {
-    valid: [`# ペンとは何か
+  valid: [`# ペンとは何か
 ペンとは何か、それは分からない。
 
 ## ペン is a ペン
@@ -24,53 +23,52 @@ tester.run("見出しの深さが１つずつ増えている", rule, {
 
 ## まとめ
 ペンとは、なんだろうか。
-`,
-    ],
-    invalid: [
+  `],
+  invalid: [
+    {
+      text: `# ボールペンとは何か
+  ボールペンについて考える。
+
+  ### ボールペンの中のインクに使われている物質の成分について
+
+  どういった成分の物質が使われているだろうか
+
+  ## ボールペンのインクについて
+
+  色々な色がある。すごい。`,
+      errors: [
         {
-            text: `# ボールペンとは何か
-ボールペンについて考える。
-
-### ボールペンの中のインクに使われている物質の成分について
-
-どういった成分の物質が使われているだろうか
-
-## ボールペンのインクについて
-
-色々な色がある。すごい。`,
-            errors: [
-                {
-                    message: '#の後に###が来ています。段落は１つずつ下げてください。',
-                    line: 4,
-                    column: 1
-                }
-            ]
-        },
+          message: "#の後に###が来ています。段落は１つずつ下げてください。",
+          line: 4,
+          column: 1
+        }
+      ]
+    },
+    {
+      text: `## シャープペンの芯について
+  シャープなペンだ。
+  `,
+      errors: [
         {
-            text: `## シャープペンの芯について
-シャープなペンだ。
-`,
-            errors: [
-                {
-                    message: 'ページの先頭のヘッダーが#から始まっていません。',
-                    line: 1,
-                    column: 1
-                }
-            ]
-        },
-        {
-            text: `# 万年筆について
+          message: "ページの先頭のヘッダーが#から始まっていません。",
+          line: 1,
+          column: 1
+        }
+      ]
+    },
+    {
+      text: `# 万年筆について
 筆だ。
 
 # 万年も使える
 `,
-            errors: [
-                {
-                    message: 'ページの先頭以外で#が見つかりました。',
-                    line: 4,
-                    column: 1
-                }
-            ]
+      errors: [
+        {
+          message: "ページの先頭以外で#が見つかりました。",
+          line: 4,
+          column: 1
         }
-    ]
+      ]
+    }
+  ]
 });
